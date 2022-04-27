@@ -1,15 +1,48 @@
-/**
- * TODO: Exercise 1: use `fetch` & async/await to get data from an API
- */
+
+//  TODO: Exercise 1: use `fetch` & async/await to get data from an API
+
+ export async function asyncGetQuotes(){
+     console.log('1. Before async fetch');
+     const res = await fetch('https://futuramaapi.herokuapp.com/api/quotes/1');
+     console.log('2. Async fetch complete');
+     const results = await res.json();
+     return results;
+ }
+
+ 
+ 
 
 /**
  * TODO: Exercise 2: use `fetch` & `.then` syntax to get the same data from the first exercise.
  */
+ export function thenGetQuotes() {
+  const results = fetch ('https://futuramaapi.herokuapp.com/api/quotes/1')
+     .then((res) => res.json())
+     .then((results) => ({ quote: results [0], totalResults: results.length }));
+     
+     return results;
+     {
+
+     }
+
+}
+
+
 
 /**
  * TODO: Exercise 3: use `fetch`, async/await, and a try/catch statement to get data from an API and handle errors
  */
+ export async function asyncTryGetQuotes(){
+     try{
+        console.log('1. Before async fetch');
+        const res = await fetch('https://futuramaapi.herokuapp.com/api/quotes/1')
+        const results = await res.json();
+        return results;
 
+
+     }
+    
+}
 /**
  * TODO: Exercise 4: use `fetch`, `.then`, and `.catch` to get the same data from exercise 3 while handling errors
  */
